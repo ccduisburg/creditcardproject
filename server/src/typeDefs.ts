@@ -7,7 +7,7 @@ export const typeDefs = gql`
     email: String!
   }
   type Query {
-    me: User!
+    me: User
   }
   type Mutation {
     register(
@@ -16,6 +16,6 @@ export const typeDefs = gql`
       email: String!
       password: String!
     ): Boolean!
-    login(email: String!, password: String!): User!
+    login(email: String!, password: String!): User
   }
 `;

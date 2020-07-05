@@ -1,13 +1,15 @@
-import { IResolvers } from "apollo-server-express";
-import { User } from "./entity/User";
+import { IResolvers } from "graphql-tools";
 import * as bcrypt from "bcryptjs";
+
+import { User } from "./entity/User";
+
 export const resolvers: IResolvers = {
   Query: {
-    me: ({ req }) => {
-      // console.log(req.session.userId);
+    me: (_, __, { req }) => {
       if (!req.session.userId) {
         return null;
       }
+
       return User.findOne(req.session.userId);
     },
   },
@@ -23,7 +25,6 @@ export const resolvers: IResolvers = {
       return true;
     },
     login: async (_, { email, password }, { req }) => {
-      console.log(req);
       const user = await User.findOne({ where: { email } });
       if (!user) {
         return null;
@@ -32,6 +33,8 @@ export const resolvers: IResolvers = {
       if (!valid) {
         return null;
       }
+      //console.log(user.id);
+      console.log(req.session.userId);
       req.session.userId = user.id;
       return user;
     },
