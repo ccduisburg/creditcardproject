@@ -4,8 +4,8 @@ node_modules/
 build/
 tmp/
 temp/
-server/.env
-web/.env
+.env
+
 
 # dependencies
 /node_modules
