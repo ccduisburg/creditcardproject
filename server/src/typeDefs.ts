@@ -5,6 +5,7 @@ export const typeDefs = gql`
     firstName: String!
     lastName: String!
     email: String!
+    type: String!
   }
   type Query {
     me: User
@@ -17,5 +18,6 @@ export const typeDefs = gql`
       password: String!
     ): Boolean!
     login(email: String!, password: String!): User
+    createSubscription(source: String!): User
   }
 `;

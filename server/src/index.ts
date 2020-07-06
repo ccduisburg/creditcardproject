@@ -1,5 +1,6 @@
-// import "reflect-metadata";
+import "reflect-metadata";
 import { createConnection } from "typeorm";
+import "dotenv/config";
 // import { User } from "./entity/User";
 //import { createConnection } from "net";
 import { ApolloServer } from "apollo-server-express";
